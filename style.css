@@ -1,360 +1,630 @@
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0; /* sets the default margin */
-    padding: 0; /* sets the defauly margin */
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+        height: 200vh;
+        background: url('images/home-background.jpg') no-repeat center center/cover;
+        background-attachment: fixed;
+        position: relative;
+        color: white;
+        
+    }
+
+    body::before { /* allows you to style before the actual content of the body */
+        content: ""; /* it activates the element of body-before */
+        position: fixed; /* it ensures that the viewport (background image) can cover the entire page, despite when the user is scrolling */
+        top: 0;
+        left: 0; /* ensures that the element (background image) starts at the top left corner */
+        width: 100%;    
+        height: 100%;
+        background: rgba(0, 0, 0, 0.6);
+        background-size: cover; 
+        opacity: 0.9; /* Adjust the transparency of the background image */
+        z-index: -1; /* Ensure it stays behind the content */
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding: 8px 20px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 10;
+    }
+
+    .title {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        margin-left: 22px;
+        margin-bottom: 3px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    }
+
+
+    nav {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 8px 0; /* Add padding to the top and bottom */
+        position: fixed; /* Add this */
+        top: 0; /* Add this */
+        width: 100%; /* Add this */
+        z-index: 10; /* Add this */
+        margin-left: 90px;
+        font-size: 15px;
+        margin-top: 3px;
+    }
+
+    .items {
+        display: flex;
+        background-color: none;
+        border-radius: 5px;
+        color: white;
+        text-decoration: none; /* deletes the underline effect for links */
+    }
+
+    /*--Hoverover Effects--*/
+
+    .items:hover {
+        background-color: rgb(147, 175, 175);
+        transition: background-color 0.3s ease; /* Add smooth transition */
+    }
+
+    /*--Profile Container Section--*/
+
+    .profile-container {
+        display: flex;
+        background-color: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 210px;
+    }
+
+    .profile-image {
+        width: 120px;
+        height: auto;
+        background-color: lightslategray;
+        border-radius: 30%;
+        border: 1px solid white;
+        box-shadow: inset 0 0 0 5px white; /* creates an inner shadow within the background */
+    }
+
+    #name {
+        font-size: 40px;
+        color: white;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    #profile_description {
+        font-size: 20px;
+        color: white;
+        margin-top: 10;
+        font-weight: bold;
+    }
+
+    main {
+        padding-top: 240px; /* Add padding to the top of the main content so it doesn't overlap the header content */
+    }
+
+    /*--Contacts Container--*/
+    .contact-icons-container {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        left: 0; 
+        top: 40%;
+        z-index: 100;
+        margin-right: 1000px;
+        margin-top: -500px;
+        margin-left: 10px;
+        gap: 1px;
+    }
+
+    #linkedin-icon {
+        height: 60px;
+        width: auto;
+    }
+
+    #instagram-icon {
+        height: 40px;
+        width: auto;
+    }
+
+    #gmail-icon {
+        height: 60px;
+        width: auto;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+    }
+    /*--section styling--*/
+    section {
+        margin: 30px 0;
+    }
+
+    /*--About Me Section Styles--*/
+
+    #about-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
+        border-radius: 10px;
+        background-color: #1a1a1d;
+       
+    }
+
+    #about-me-img {
+        width: 400px; /* Adjust size as needed */
+        height: auto;
+        border-radius: 30%;
+        margin-right: 40px; /* Adds 20 pixels of space to the right of the image, creating a gap between the image and the text. */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 80);
+        z-index: 1; /* Ensures the image is above the background overlay */
+    }
+
+    .about-me-items {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text to enhance readability*/
+        z-index: 1; /* Ensures the text is above the background overlay */
+    }
+
+    .about-me-items h2 {
+        font-size: 36px;
+        margin-bottom: 10px; /* Reduced margin to bring title closer to the text */
+    }
+
+    .about-me-items p {
+        font-size: 18px;
+        max-width: 600px; /* Adjust max width as needed */
+        margin: 0;
+        padding: 0; /* Removed padding to eliminate unnecessary space */
+        line-height: 1.6; /* Creates more space in between each line of paragraph to enhance readability */
+    }
+
+    #more-about-me {
+    margin-right: 350px;
+    margin-top: 10px;
+    padding: 10px 0;
+    background-color: gray;
+    }
+
+    /*--Education Section Styles--*/
+
+    #education-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
+        background-color: #A0A0A0;
+        border-radius: 10px;
+    }
+
+
+    #education-img {
+        width: 400px; /* Adjust size as needed */
+        height: auto;
+        border-radius: 50%;
+        margin-right: 80px; /* Adds 20 pixels of space to the right of the image, creating a gap between the image and the text. */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        z-index: 1; /* Ensures the image is above the background overlay */
+    }
+
+    .education-items {
+        display: flex;
+        flex-direction: column;
+        color: white;
+        max-width: 600px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text to enhance readability */
+        z-index: 1; /* Ensures the text is above the background overlay */
+    }
+
+    .education-items h2 {
+        font-size: 36px;
+        margin-bottom: 10px; /* Reduced margin to bring title closer to the text */
+    }
+
+    .education-items p {
+        font-size: 18px;
+        max-width: 600px; /* Adjust max width as needed */
+        margin: 0;
+        padding: 0; /* Removed padding to eliminate unnecessary space */
+        line-height: 1.6; /* Creates more space in between each line of paragraph to enhance readability */
+    }
+
+    /*-- Work Experience Section Styles--*/
     
-}
+    #work-experience-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column; /* Ensure the items are in a column */
+        padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
+        background-color: #1a1a1d;
+        border-radius: 10px;
+    }
 
-body::before { /* allows you to style before the actual content of the body */
-    content: ""; /* it activates the element of body-before */
-    position: absolute; /* it ensures that the viewport (background image) can cover the entire page */
-    top: 0;
-    left: 0; /* ensures that the element (background image) starts at the top left corner */
-    width: 100%;    
-    height: 100%;
-    background-image: url("images/background1.jpg");
-    background-size: cover; 
-    opacity: 0.8; /* Adjust the transparency of the background image */
-    z-index: -1; /* Ensure it stays behind the content */
-}
-
-nav {
-    display: flex;
-    justify-content: space-evenly;
-    background-color: rgba(0, 0, 0, 0.4); /* Add a semi-transparent black background */
-    padding: 8px 0; /* Add padding to the top and bottom */
-}
-
-.items {
-    display: flex;
-    background-color: none;
-    border-radius: 5px;
-    color: white;
-    text-decoration: none; /* deletes the underline effect for links */
-}
-
-.items:hover {
-    background-color: rgb(147, 175, 175); /* Changes the background color on hover */
-}
-
-.profile-container {
-    display: flex;
-    background-color: none;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 210px;
-}
-
-.profile-image {
-    width: 120px;
-    height: auto;
-    background-color: rgb(121, 170, 200);
-    border-radius: 30%;
-    border: 1px solid white;
-    box-shadow: inset 0 0 0 5px white; /* creates an inner shadow within the background */
+    .experience-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
     
+    .experience-title h1 {
+        font-size: 40px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+    
+    .work-experience-items {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* Add space between items */
+        width: 100%;
+        justify-content: space-evenly;
+    }
+    
+    .work-experience-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px; /* Set a fixed width for each item */
+        text-align: center; /* Center the text */
+    }
+    
+    .work-experience-img {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    
+    .work-experience-item h2 {
+        font-size: 20px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px; /* Add space between title and description */
+    }
+    
+    .work-experience-item p {
+        font-size: 15px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin: 0;
+    }
 
-}
+    #internet-p {
+        width: 160%;
+        height: auto;
+    }
 
-#name {
-    font-size: 40px;
-    color: white;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
+    /*--Portfolio style section--*/
+    #portfolio-container {
+        background-color: #A0A0A0;
+    }
 
-#profile_description {
-    font-size: 20px;
-    color: white;
-    margin-top: 10;
-    font-weight: bold;
-}
+    #portfolio-container::before {
+        content: ""; 
+        position: absolute; 
+        top: 0;
+        left: 0; 
+        width: 100%;
+        height: 100%;
+        background-image: url("");
+        background-size: cover; 
+        opacity: 0.4; 
+        z-index: 0;
+    }
 
-main {
-    padding-top: 240px; /* Add padding to the top of the main content so it doesn't overlap the header content */
-}
+    .portfolio-title h1 {
+        display: flex;
+        justify-content: center;
+        font-size: 40px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-top: 0;
+        padding-top: 30px;
+    }
 
-/* Section Styles */
-section {
-    padding: 60px 20px;
-    background-color: black; 
-    margin: 20px auto;
-    width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
+    /*--Mash Game Section--*/
 
-h2 {
-    margin-bottom: 20px;
-}
+    .portfolio-mash-items h2{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-left: 400px;
+        margin-bottom: -25px;
+    }
 
-/*--About Me Section Styles--*/
+    .portfolio-mash-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 
-#about-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
-    background-color: #7a7a7a; /* Adjust the background color to match the example image */
-    border-radius: 10px;
-}
+    .portfolio-mash-info img {
+        height: 350px;
+        width: auto;
+        margin-left: 100px;
+        margin-top: -35px;
+    }
 
-#about-container::before {
-    content: ""; 
-    position: absolute; 
-    top: 0;
-    left: 0; 
-    width: 100%;
-    height: 100%;
-    background-image: url("images/about-me-background.png");
-    background-size: cover; 
-    opacity: 0.4; 
-    z-index: 0;
-}
+    .portfolio-mash-info p {
+        font-size: 25px;
+        width: 60%;
+        height: auto;
+        margin-left: 200px;
+        margin-top: 60px;
+    }
 
-#about-me-img {
-    width: 400px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 30%;
-    margin-right: 40px; /* Adds 20 pixels of space to the right of the image, creating a gap between the image and the text. */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 80);
-    z-index: 1; /* Ensures the image is above the background overlay */
-}
+    /*--2D Arcade Game Style--*/
 
-.about-me-items {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    max-width: 600px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text to enhance readability*/
-    z-index: 1; /* Ensures the text is above the background overlay */
-}
+    .portfolio-arcade-items h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-right: 900px;
+        margin-top: 100px;
+        margin-left: 280px;
+    }
 
-.about-me-items h2 {
-    font-size: 36px;
-    margin-bottom: 10px; /* Reduced margin to bring title closer to the text */
-}
+    .portfolio-game-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-right: 40px;
+    }
 
-.about-me-items p {
-    font-size: 18px;
-    max-width: 600px; /* Adjust max width as needed */
-    margin: 0;
-    padding: 0; /* Removed padding to eliminate unnecessary space */
-    line-height: 1.6; /* Creates more space in between each line of paragraph to enhance readability */
-}
+    .portfolio-game-info img {
+        height: 400px;
+        width: auto;
+        margin-top: -120px;
+    }
 
-/*--Education Section Styles--*/
+    .portfolio-game-info p {
+        font-size: 25px;
+        width: 60%;
+        height: auto;
+    }
 
-#education-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
-    background-color: #7a7a7a; /* Adjust the background color to match the example image */
-    border-radius: 10px;
-}
+    /*--Personal Wesbite Styling--*/
+    
+    .portfolio-website-items h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-left: 480px;
+        margin-bottom: -25px;
+        margin-top: 80px;
+    }
 
-#education-container::before {
-    content: ""; 
-    position: absolute; 
-    top: 0;
-    left: 0; 
-    width: 100%;
-    height: 100%;
-    background-image: url("images/education-background.jpg");
-    background-size: cover; 
-    opacity: 0.4; 
-    z-index: 0;
-}
+    .portfolio-website-info {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
 
+    .portfolio-website-info img {
+        height: 250px;
+        width: auto;
+        margin-left: 100px;
+    }
 
-#education-img {
-    width: 400px; /* Adjust size as needed */
-    height: auto;
-    border-radius: 50%;
-    margin-right: 80px; /* Adds 20 pixels of space to the right of the image, creating a gap between the image and the text. */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1; /* Ensures the image is above the background overlay */
-}
+    .portfolio-website-info p {
+        font-size: 25px;
+        width: 60%;
+        height: auto;
+        margin-left: 200px;
+        margin-top: 60px;
+        margin-right: 100px;
+    }
 
-.education-items {
-    display: flex;
-    flex-direction: column;
-    color: white;
-    max-width: 600px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Adds a shadow to the text to enhance readability */
-    z-index: 1; /* Ensures the text is above the background overlay */
-}
+    /*--Demo Day Styling--*/
+    
+    .portfolio-demo-items h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-right: 900px;
+        margin-top: 100px;
+        margin-left: 280px;
+    }
 
-.education-items h2 {
-    font-size: 36px;
-    margin-bottom: 10px; /* Reduced margin to bring title closer to the text */
-}
+    .portfolio-demo-project-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-right: 40px;
+    }
 
-.education-items p {
-    font-size: 18px;
-    max-width: 600px; /* Adjust max width as needed */
-    margin: 0;
-    padding: 0; /* Removed padding to eliminate unnecessary space */
-    line-height: 1.6; /* Creates more space in between each line of paragraph to enhance readability */
-}
+    .portfolio-demo-project-items img {
+        height: 300px;
+        width: auto;
+        margin-top: -120px;
+    }
 
-/*-- Work Experience Section Styles--*/
-
-#work-experience-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
-    background-color: #7a7a7a; /* Adjust the background color to match the example image */
-    border-radius: 10px;
-}
-
-#work-experience-container::before {
-    content: ""; 
-    position: absolute; 
-    top: 0;
-    left: 0; 
-    width: 100%;
-    height: 100%;
-    background-image: url("images/work-experience-background.png");
-    background-size: cover; 
-    opacity: 0.4; 
-    z-index: 0;
-}
-
-.work-experience-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 30px; /* Space between each work experience item */
-    z-index: 1;
-    margin-right: 25px;
-}
-
-.work-experience-img {
-    width: 80px;
-    height: auto;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin: 0 200px;
-}
-
-.work-experience-items h2 {
-    font-size: 30px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.work-experience-items p {
-    font-size: 15px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    text-align: center;
-    width: 80%;
-}
-
-/*--Hobbies style section--*/
-
-#hobbies-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
-    background-color: #7a7a7a; /* Adjust the background color to match the example image */
-    border-radius: 10px;
-    max-width: 100%; /* Ensure the container doesn't exceed the viewport width */
-}
-
-#hobbies-container::before {
-    content: ""; 
-    position: absolute; 
-    top: 0;
-    left: 0; 
-    width: 100%;
-    height: 100%;
-    background-image: url("images/hobbies-background.jpg");
-    background-size: cover; 
-    opacity: 0.4; 
-    z-index: 0;
-}
-
-.hobbies-items {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 40px; /* Space between each work experience item */
-    z-index: 1;
-    margin-right: 30px;
-}
-
-.hobbies-img {
-    width: 80px;
-    height: auto;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
-    margin: 0 200px;
-}
-
-#hobbies-piano {
-    width: 140px;
-    height: auto;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin-bottom: 10px;
-    margin: 0 200px;
-}
-
-.hobbies-items h2 {
-    font-size: 30px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.hobbies-items p {
-    font-size: 15px;
-    color: white;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin: 0;
-    text-align: center;
-    width: 80%;
-}
-
-/*--Contact Section Styles--*/
-
-#contact-container {
-    background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent black background */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    justify-content: space-evenly;
-    color: white;
-    padding: 5px 0;
-}
-
-.contact-items h2 {
-    font-size: 30px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-.contact-items p {
-    margin-top: -5px;
-}
+    .portfolio-demo-project-items p {
+        font-size: 25px;
+        width: 60%;
+        height: auto;
+        margin-left: 200px;
+        margin-top: 60px;
+    }
 
 
-.contact-items img{
-    width: 60px;
-    height: auto;
-    padding-left: 25px;
-    margin-top: -20px;
-}
+    /*--Hobbies style section--*/
+
+    #hobbies-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 40px 20px; /* Adds 40 pixels of padding to the top and bottom, and 20 pixels to the left and right, creating space inside the container. */
+        background-color: #1a1a1d;
+        border-radius: 10px;
+    }
+
+    .hobbies-title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .hobbies-title h1 {
+        font-size: 40px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    .hobbies-section {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 30px; /* Add space between items */
+        width: 100%;
+        justify-content: space-evenly;
+    }
+
+    .hobbies-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 200px; /* Set a fixed width for each item */
+        text-align: center; /* Center the text */
+    }
+
+    .hobbies-img {
+        width: 80px;
+        height: auto;
+        margin-bottom: 10px;
+    }
+
+    .hobbies-items h2 {
+        font-size: 20px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin-bottom: 20px; /* Add space between title and description */
+    }
+
+    .hobbies-items p {
+        font-size: 15px;
+        color: white;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        margin: 0;
+    }
+
+    #piano-img {
+        height: 83px;
+        width: auto;
+    }
+
+    /*--Gallery Section Styling--*/
+
+    .gallery-container {
+        background-color: #A0A0A0;
+        background-size: cover;
+        padding: 15px 0;
+        overflow: hidden;
+    }
+    .gallery-spinner {
+        display: flex;
+        width: 100%; /* or specific width based on your content */
+        animation: scroll 20s linear; /* Adjust duration as needed */
+    }
+
+    .gallery-item {
+        padding: 0 10px;
+    }
+    
+    .gallery-item img {
+        height: 200px;
+        width: auto;
+        flex-wrap: wrap;
+    }
+
+    /* Keyframes for the scroll animation */
+    @keyframes scroll {
+        0% {transform: translateX(0);}
+        100% {transform: translateX(-100%);}
+    }
+    
+    /* Hover effect for Gallery Section */
+    .gallery-item:hover {
+        transform: scale(1.05);
+    }
+  
+    .gallery-item:hover img {
+        transform: scale(1.1);
+    }
+
+    /*--Scroll Behavior--*/
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /*--Footer Section--*/
+
+    footer {
+        text-align: center; 
+        padding: 20px 0; 
+        background-color: #1a1a1d;
+        color: white; 
+        bottom: 0; /* Position it at the bottom */
+        width: 100%; /* Full width */
+        z-index: 10; /* Ensure it stays on top */
+    }
+    
+    /*--smooth-scrolling--*/
+    html {
+        scroll-behavior: smooth;        
+    }
+
+    /*--Back to the top Button Styling--*/
+    #back-to-top {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007BFF; 
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+        display: none; /* Hidden by default */
+    }
+    
+    #back-to-top:hover {
+        background-color: #0056b3; 
+    }
+    
 
 
 
